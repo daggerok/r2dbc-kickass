@@ -1,5 +1,5 @@
 # r2dbc-kickass [![Build Status](https://travis-ci.org/daggerok/r2dbc-kickass.svg?branch=master)](https://travis-ci.org/daggerok/r2dbc-kickass)
-Reactive Spring WebFlux R2DBC Postgres Kickass!
+Reactive Spring WebFlux R2DBC Postgres Kickass project!
 
 ## getting started
 
