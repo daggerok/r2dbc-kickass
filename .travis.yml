@@ -42,17 +42,21 @@ jobs:
       jdk: openjdk11
       script:
         - docker pull postgres:alpine
-        - docker run --rm -it -p 5432:5432 --name postgres postgres:alpine &
-        - cd $TRAVIS_BUILD_DIR && ./mvnw clean test package
-        - cd $TRAVIS_BUILD_DIR && java -jar target/*.jar &
+        - docker run --rm -i -p 5432:5432 --name postgres postgres:alpine &
+        - cd $TRAVIS_BUILD_DIR && ./mvnw clean package -DskipTests >/dev/null
+        - java -jar $TRAVIS_BUILD_DIR/target/*.jar &
         - wait_for 8080
-        - http :8080 name=ololo
-        - http :8080 name=trololo
-        - http :8080
+        - http :8080 name=ololo   | jq '.'
+        - http :8080 name=trololo | jq '.'
+        - http :8080              | jq '.'
         - http delete :8080
-        - http :8080
+        - http :8080              | jq '.'
         - stop_any 80 8080
+        - cd $TRAVIS_BUILD_DIR && ./mvnw clean test
         - docker rm -f -v postgres
 cache:
+  pip: true
+  packages: true
   directories:
+    - ~/.docker
     - ~/.m2

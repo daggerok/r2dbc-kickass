@@ -18,7 +18,9 @@
   <properties>
     <vavr.version>0.10.0</vavr.version>
     <kotlin.version>1.3.31</kotlin.version>
+    <jackson.version>2.9.9</jackson.version>
     <junit-jupiter.version>5.5.0-M1</junit-jupiter.version>
+    <r2dbc-postgresql.version>1.0.0.M7</r2dbc-postgresql.version>
     <spring-boot.version>${project.parent.version}</spring-boot.version>
 
     <java.version>11</java.version>
@@ -28,6 +30,7 @@
     <encoding>UTF-8</encoding>
     <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+    <spring-boot-dependencies-r2dbc.version>0.1.0.M1</spring-boot-dependencies-r2dbc.version>
   </properties>
 
   <dependencyManagement>
@@ -43,7 +46,7 @@
       <dependency>
         <groupId>org.springframework.boot.experimental</groupId>
         <artifactId>spring-boot-dependencies-r2dbc</artifactId>
-        <version>0.1.0.M1</version>
+        <version>${spring-boot-dependencies-r2dbc.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -66,7 +69,7 @@
     <dependency>
       <groupId>io.r2dbc</groupId>
       <artifactId>r2dbc-postgresql</artifactId>
-      <version>1.0.0.M7</version>
+      <version>${r2dbc-postgresql.version}</version>
     </dependency>
     <dependency>
       <groupId>javax.xml.bind</groupId>
@@ -112,7 +115,7 @@
     <dependency>
       <groupId>com.fasterxml.jackson.module</groupId>
       <artifactId>jackson-module-kotlin</artifactId>
-      <version>2.9.9</version>
+      <version>${jackson.version}</version>
     </dependency>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>

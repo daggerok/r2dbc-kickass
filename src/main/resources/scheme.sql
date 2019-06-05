@@ -1,0 +1,4 @@
+-- drop table if exists mydata ;
+-- create table mydata(id bigserial not null constraint coffee_pkey primary key, name varchar(255) not null);
+-- alter table data owner to "user";
+-- create unique index data_id_uindex on "data" (id);
