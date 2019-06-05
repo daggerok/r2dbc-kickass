@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: app
+  output:
+    ansi:
+      enabled: always
+logging:
+  level:
+    org.springframework.transaction: 'TRACE'
+    org.springframework.data.r2dbc.connectionfactory: 'DEBUG'
